@@ -1,15 +1,36 @@
-# .gitignore
-.env
-*.env
+# تجاهل ملفات البيئة (مثل .env)
+.env*
+!.env.example  # استثناء: ملف .env.example (يمكن استخدامه كقالب)
 
+# تجاهل البيئة الافتراضية (venv)
+venv/
+.venv/
+env/
 
+# تجاهل ملفات المفاتيح
+*.key
+*.pem
+*.cert
 
-# .gitignore
-*.env*
-!.env.example
-
-
-*.env*
-__pycache__/
+# تجاهل ملفات قاعدة البيانات
 *.db
+
+# تجاهل ملفات بايثون المؤقتة
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# تجاهل ملفات إعدادات IDE
+.vscode/
+.idea/
+
+# تجاهل ملفات النظام (خاصة بـ macOS)
+.DS_Store
+
+# تجاهل مجلد التحميلات
 /uploads/
+
+# تجاهل ملفات البيئة (مثل .env)
+.env*
+!.env.example  # استثناء: ملف .env.example (يمكن استخدامه كقالب)
