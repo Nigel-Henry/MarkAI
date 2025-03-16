@@ -1,0 +1,16 @@
+{
+    "dashboard": {
+        "panels": [
+            {
+                "type": "graph",
+                "title": "API Requests",
+                "targets": [
+                    {
+                        "expr": "rate(http_requests_total[1m])",
+                        "legendFormat": "Requests"
+                    }
+                ]
+            }
+        ]
+    }
+}

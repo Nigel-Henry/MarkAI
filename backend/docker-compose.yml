@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: ./backend
+      target: development
+    env_file: .env.development
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./backend:/app
+    depends_on:
+      - db
+
+  db:
+    image: postgres:13
+    env_file: .env.development
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

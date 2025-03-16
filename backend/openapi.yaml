@@ -1,0 +1,37 @@
+openapi: 3.0.0
+info:
+  title: MarkAI API
+  version: 1.0.0
+paths:
+  /api/v1/chat:
+    post:
+      summary: Generate text
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatResponse'
+components:
+  schemas:
+    ChatRequest:
+      type: object
+      properties:
+        message:
+          type: string
+          description: The message to generate a response for
+          example: "Hello, how are you?"
+    ChatResponse:
+      type: object
+      properties:
+        response:
+          type: string
+          description: The generated response
+          example: "I'm good, thank you!"

@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    environment:
+      - DATABASE_URL=postgres://user:pass@db/markai
+    depends_on:
+      - db
+      - minio
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+
+  db:
+    image: postgres:13
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: pass
+
+  minio:
+    image: minio/minio
+    ports:
+      - "9000:9000"
+    volumes:
+      - minio_data:/data
+    command: server /data
+
+volumes:
+  postgres_data:
+  minio_data:
